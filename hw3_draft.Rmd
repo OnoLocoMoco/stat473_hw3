@@ -1,0 +1,72 @@
+---
+title: "Stat 473 - HW 3"
+author: "Jay Maxwell"
+date: "2/17/2022"
+output: 
+  pdf_document:
+    fig_caption: yes
+    includes:
+     in_header: my_header.tex
+---  
+
+```{r setup, include=FALSE, echo=FALSE, message=FALSE, warning=FALSE}
+knitr::opts_chunk$set(tidy.opts=list(width.cutoff=80), 
+                      tidy=TRUE, 
+                      include=TRUE, 
+                      echo=TRUE) 
+                      #results="asis",
+                      #fig.pos = "!", 
+                      #out.extra = ""
+library(plyr)                      
+library(tidyverse)
+library(kableExtra)
+library(knitr)
+```
+
+1.	Suppose we want to estimate the total number of small farms in 1992.  
+
+
+|     a)	Using your output from (3) in the In-Lab R coding assignment, report the estimated total and its standard error.
+
+
+|     b)	What is the FPC?
+
+
+|     c)	What is the sampling weight associated with each selected county?
+
+
+
+
+|     d)	Provide an interpretation of this weight.
+
+
+
+
+|     e)	Using hand calculations and the result of the sample variance from (3d) in the In-Lab R coding assignment, show how to obtain the standard error you reported in (a) above.
+
+
+
+|     f)	Now, using the results of the total estimator in (3) in the In-Lab again, calculate by hand an estimate for the average number of small farms in 1992 per county as well as its standard error.  
+
+
+
+
+
+
+
+2.	Now suppose we want to estimate the proportion of counties that have at least 500 farms.  
+
+
+
+
+|     a)	Using the results of (1) in the In-Lab R coding assignment, report the proportion and its standard error.
+
+
+
+
+|     b)	Using the reported proportion in (a), calculate by hand the estimated standard error for the proportion and check this result with the standard error reported in (a).
+
+
+
+|    c)	Using your result in (a), calculate by hand the estimate for the population total (i.e. the total number of counties that have at least 500 farms), and its standard error. And check them with results obtained by R. Show the intermediate steps. 
+
