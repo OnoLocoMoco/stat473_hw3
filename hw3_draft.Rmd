@@ -28,30 +28,51 @@ library(knitr)
 
 |     a)	Using your output from (3) in the In-Lab R coding assignment, report the estimated total and its standard error.
 
+**The estimated total number small farms in 1992 from our lab assignment was 171707 farms and the SE of that estimate is 28036.57 farms**
+
 
 |     b)	What is the FPC?
 
 
+**The FPC is $(1-\frac{125}{3041})=0.0411$.   **
+
 |     c)	What is the sampling weight associated with each selected county?
 
-
+**The sampling weight is $\frac{3041}{125}=24.23$ **
 
 
 |     d)	Provide an interpretation of this weight.
 
 
-
+**The sampling weight is the measure of the number of units in the population represented by each sampled unit. So each farm in our sample represent 24.23 farms of our population.**
 
 |     e)	Using hand calculations and the result of the sample variance from (3d) in the In-Lab R coding assignment, show how to obtain the standard error you reported in (a) above.
+
+
+
+\begin{align*}
+SE(\hat{t})&=N\sqrt{\frac{\hat{s}^2}{n}(1-\frac{n}{N})} \\
+&= 3041\sqrt{\frac{11080.412}{125}(1-\frac{125}{3041})} \\
+&= 28036.57
+\end{align*}
 
 
 
 |     f)	Now, using the results of the total estimator in (3) in the In-Lab again, calculate by hand an estimate for the average number of small farms in 1992 per county as well as its standard error.  
 
 
+\begin{align*}
+\hat{t}&=N(\bar{y}) \\
+171707 &= 3041(\bar{y})\\
+56.46&=\bar{y}
+\end{align*}
 
 
-
+\begin{align*}
+SE(\bar{y})&=\frac{SE(\hat{t})}{N} \\
+&=\frac{28036.57}{3041} \\
+&=9.22
+\end{align*}
 
 
 2.	Now suppose we want to estimate the proportion of counties that have at least 500 farms.  
