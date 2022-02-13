@@ -77,17 +77,47 @@ SE(\bar{y})&=\frac{SE(\hat{t})}{N} \\
 
 2.	Now suppose we want to estimate the proportion of counties that have at least 500 farms.  
 
-
-
-
 |     a)	Using the results of (1) in the In-Lab R coding assignment, report the proportion and its standard error.
 
-
+**Based on the results from my lab, I found the sample proportion of counties that have at least 500 farms to be 0.52 and the standard error to be approximately 0.0447. **
 
 
 |     b)	Using the reported proportion in (a), calculate by hand the estimated standard error for the proportion and check this result with the standard error reported in (a).
 
 
+\begin{align*}
+SE(\hat{p})&=\sqrt{\frac{\hat{p}(1-\hat{p})}{n-1}(1-\frac{n}{N})} \\
+&=\sqrt{\frac{0.52(0.48)}{124}(1-\frac{125}{3041})} \\
+&=0.04393362
+\end{align*}
+
+**The resulting standard error here of 0.04393362 is very very close, but a little less, than the standard error reported above. Depending on how we choose to round, the difference might not be signficant. This indicates to me that the FPC used in the calculation does not have a significant impact on the findings. ** 
 
 |    c)	Using your result in (a), calculate by hand the estimate for the population total (i.e. the total number of counties that have at least 500 farms), and its standard error. And check them with results obtained by R. Show the intermediate steps. 
+
+\begin{align*}
+\hat{t}&=N*\hat{P} \\
+&=3041*0.52 \\
+&=1581.32 \text{ farms}
+\end{align*}
+
+\begin{align*}
+SE(\hat{t})&=N*\hat{p} \\
+&=3041*0.04393 \\
+&=133.59 \text{ farms}
+\end{align*}
+
+
+```{r}
+full_data <- read_csv("agpop-1.csv", show_col_types = FALSE)
+names(full_data) <- c("county", "state", "acres92", "acres87", "acres82",
+                        "farms92", "farms87", "farms82", "largef92",
+                      "largef87", "largef82", "smallf92", "smallf87",
+                      "smallf82", "region")
+full_data%>%
+  select(county,state,acres92,farms92,largef92,smallf92,region) %>% 
+  mutate(atLeast500f = farms92 >=500) -> full_data
+cat("number of counties with more than 500 farms:",
+    sum(full_data$atLeast500f))
+```
 
